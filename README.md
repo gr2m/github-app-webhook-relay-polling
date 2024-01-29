@@ -1,5 +1,3 @@
-# 🚧 Work in progress [#1](https://github.com/gr2m/github-app-webhook-relay-polling/pull/1)
-
 # `github-app-webhook-relay-polling`
 
 > Receive webhooks from a GitHub app via polling
