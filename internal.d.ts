@@ -8,7 +8,7 @@ import { GitHubAppWebHookRelay } from "./index";
 export type Options = GitHubAppWebHookRelay.Options;
 
 export type State = {
-  owner: string;
+  owner?: string;
   repo?: string;
   repoId?: number;
   eventEmitter: EventEmitter;

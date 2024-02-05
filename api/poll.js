@@ -36,6 +36,10 @@ export async function startPolling(state) {
       return false;
     }
 
+    if (!state.owner) {
+      return true;
+    }
+
     if (delivery.installation_id !== state.installationId) {
       return false;
     }
