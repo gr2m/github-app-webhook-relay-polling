@@ -80,7 +80,7 @@ const relay = new WebhookRelay(options);
       </td>
       <td>
 
-**Required**. The account name of the GitHub user or organization.
+The account login of the GitHub user or organization. When set, webhooks will be filtered for the given account only.
 
 </td>
     </tr>
@@ -93,7 +93,7 @@ const relay = new WebhookRelay(options);
       </td>
       <td>
 
-When set, webhooks will be filtered for the given repository only.
+The name of a test repository. When set, webhooks will be filtered for the given repository only.
 
 </td>
     </tr>

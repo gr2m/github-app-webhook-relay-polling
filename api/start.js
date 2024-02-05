@@ -41,20 +41,25 @@ export default async function start(state) {
     throw new AggregateError([error], "Could not retrieve app info");
   }
 
-  state.installationId = await getInstallationId(state, String(appSlug));
-  const octokit = await state.app.getInstallationOctokit(state.installationId);
+  if (state.owner) {
+    state.installationId = await getInstallationId(state, String(appSlug));
+    const octokit = await state.app.getInstallationOctokit(
+      state.installationId
+    );
 
-  if (state.repo) {
-    const { data: repo } = await octokit.request("GET /repos/{owner}/{repo}", {
-      owner: state.owner,
-      repo: state.repo,
-    });
-    state.repoId = repo.id;
+    if (state.repo) {
+      const { data: repo } = await octokit.request(
+        "GET /repos/{owner}/{repo}",
+        {
+          owner: state.owner,
+          repo: state.repo,
+        }
+      );
+      state.repoId = repo.id;
+    }
   }
 
   startPolling(state);
-
-  // TODO: implement polling
 
   state.eventEmitter.emit("start", {
     date: state.startTimeOnServer,
