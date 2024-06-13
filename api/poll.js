@@ -70,7 +70,6 @@ export async function startPolling(state) {
 
     state.eventEmitter.emit("webhook", webhookEvent);
 
-    // @ts-expect-error - types are incompatible but that's ok
     await state.app.webhooks.receive(webhookEvent);
   }
 
