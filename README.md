@@ -29,7 +29,7 @@ app.webhooks.on("issues", async ({ payload, octokit }) => {
       repo: payload.repository.name,
       issue_number: payload.issue.number,
       body: "Hello, world!",
-    }
+    },
   );
 
   app.log.info("[app] Comment created: %s", comment.html_url);
